@@ -89,7 +89,13 @@ public class ViewPostActivity extends AppCompatActivity {
             activityViewPostBinding.progress.setMax(mediaPlayer.getDuration());
             new Thread(() -> {
                 while(shouldUpdateProgress.get()){
-                    activityViewPostBinding.progress.post(() -> activityViewPostBinding.progress.setProgress(mediaPlayer.getCurrentPosition()));
+                    activityViewPostBinding.progress.post(() -> {
+                        if (mediaPlayer!=null) {
+                            activityViewPostBinding.progress.setProgress(mediaPlayer.getCurrentPosition());
+                        }else{
+                            activityViewPostBinding.progress.setProgress(0);
+                        }
+                    });
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
