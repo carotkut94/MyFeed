@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.death.myfeed.utils.BindingUtility" />
+
+        <variable
+            name="tag"
+            type="com.death.myfeed.model.dto.Tags" />
+    </data>
+
+    <com.google.android.material.chip.Chip
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="4dp"
+        android:layout_marginLeft="8dp"
+        android:text="@{tag.text}"
+        />
+</layout>
